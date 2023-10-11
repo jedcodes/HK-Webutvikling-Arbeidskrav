@@ -1,0 +1,13 @@
+/*
+    main.css is the usual name for a CSS which will be used on all/most pages.
+*/
+
+main {
+    padding: 1.2rem;
+}
+
+.warriors, .tools {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+}

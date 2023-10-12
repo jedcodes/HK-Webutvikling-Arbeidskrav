@@ -23,7 +23,7 @@ const inventory = JSON.parse(localStorage.getItem("inventory"));
 
 // ADD TO ARMY INVENTORY
 const addArmyToInventory = (itemTitle) => {
-  const inventoryItem = armyInventory.filter(
+  const inventoryItem = armyInventory.find(
     (item) => item.categoryName === itemTitle
   );
 

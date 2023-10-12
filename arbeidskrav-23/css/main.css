@@ -11,3 +11,8 @@ main {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 1rem;
 }
+
+.card__img {
+    object-fit: contain;
+    width: 100%;
+}

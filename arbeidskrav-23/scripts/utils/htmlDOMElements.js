@@ -11,10 +11,11 @@ const createCardElements = (data) => {
 `;
 };
 
+// YOUR ARMY PAGE CARD
 const inventoryCardElements = (data) => {
   return `
-        <div class="card">
-            <img src=${data.image} alt=${data.categoryName}/>
+        <div class="card" style="width: 15rem">
+            <img class="card__img" src=${data.image} alt=${data.categoryName}/>
         </div>
     
     `;

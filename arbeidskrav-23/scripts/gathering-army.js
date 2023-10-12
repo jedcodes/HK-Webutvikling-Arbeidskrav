@@ -54,3 +54,7 @@ searchButton.addEventListener("click", (event) => {
 });
 
 // REMOVE LATER: TIMEOUT FUNCTION TO ADD GOLD COINS
+
+setTimeout(() => {
+  updateResourceAmount("Gold", 1000);
+}, 5000);

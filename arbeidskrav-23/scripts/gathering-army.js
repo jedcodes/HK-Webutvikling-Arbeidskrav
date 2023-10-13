@@ -3,30 +3,43 @@ import ArmyModule from "./modules/ArmyModule.js";
 import {
   updateResourceAmount,
   addArmyToInventory,
+  resources,
 } from "./utils/localStorage.js";
 import { createCardElements } from "./utils/htmlDOMElements.js";
+import { showResources } from "./utils/resource.js";
 
 // HTML ELEMENTS
-const resourceSection = document.querySelector(".resources");
-const warriorSection = document.querySelector(".warriors");
+const armyShopContainer = document.querySelector(".army__shop");
 const searchTerm = document.querySelector(".search__term");
 const searchButton = document.querySelector(".search__btn");
+// const amountOfGold = document.querySelector("#gold__amount");
+// const amountOfIron = document.querySelector("#metal__amount");
+// const amountOfWood = document.querySelector("#wood__amount");
 
-const displayWarriorCards = () => {
-  const cards = ArmyModule.getWarriors;
+// // Showing Amount Of Resources Collected
+// amountOfGold.innerHTML = resources[0].amount;
+// amountOfIron.innerHTML = resources[1].amount;
+// amountOfWood.innerHTML = resources[2].amount;
 
+showResources(resources);
+
+//Merging both Modules into one Array
+const warriors = ArmyModule.getWarriors;
+const tools = ArmyModule.getTools;
+const cards = [...warriors, ...tools];
+
+//
+const displayArmyShopCards = () => {
   let cardOutput = "";
   for (let card of cards) {
     cardOutput += createCardElements(card);
-    warriorSection.innerHTML = cardOutput;
+    armyShopContainer.innerHTML = cardOutput;
   }
 };
-displayWarriorCards();
+displayArmyShopCards();
 
 // SEARCH BAR FUNCTION
 const searchFilter = (term) => {
-  const cards = ArmyModule.getWarriors;
-
   const filteredCard = cards.filter((card) => {
     return card.categoryName.toLowerCase() === term.toLowerCase();
   });
@@ -34,7 +47,7 @@ const searchFilter = (term) => {
   let cardOutput = "";
   for (let card of filteredCard) {
     cardOutput += createCardElements(card);
-    warriorSection.innerHTML = cardOutput;
+    armyShopContainer.innerHTML = cardOutput;
   }
 };
 
@@ -49,12 +62,11 @@ searchButton.addEventListener("click", (event) => {
   btn.addEventListener("click", (e) => {
     updateResourceAmount("Gold", e.target.title, "DECREAMENT");
     addArmyToInventory(e.target.name);
-    console.log(e.target.title);
+    const updatedAmount = JSON.parse(localStorage.getItem("resources"));
+    console.log(updatedAmount);
+    // amountOfGold.innerHTML = updatedAmount[0].amount;
+    // amountOfIron.innerHTML = updatedAmount[1].amount;
+    // amountOfWood.innerHTML = updatedAmount[2].amount;
+    showResources(updatedAmount);
   });
 });
-
-// REMOVE LATER: TIMEOUT FUNCTION TO ADD GOLD COINS
-
-setTimeout(() => {
-  updateResourceAmount("Gold", 1000);
-}, 5000);

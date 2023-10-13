@@ -1,3 +1,12 @@
 /*
     Do you need a dedicated CSS file per HTML page in addition to main.css?
 */
+
+
+.mine {
+    cursor: url("./../images/pickaxe-cursor.png"), auto;
+}
+
+.woodcutting {
+    cursor: url("./../images/axe-cursor.png"), auto;
+}

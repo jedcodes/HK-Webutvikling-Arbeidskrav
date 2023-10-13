@@ -42,7 +42,9 @@ const updateResourceAmount = (resourceType, amount, action = "ICREAMENT") => {
       resource.amount += amount;
       break;
     case "DECREAMENT":
-      resource.amount -= amount;
+      if (resource.amount - amount >= 0) {
+        resource.amount -= amount;
+      } else alert("You have negativ balance");
       break;
     default:
       console.log("Invalid Action, try again!");

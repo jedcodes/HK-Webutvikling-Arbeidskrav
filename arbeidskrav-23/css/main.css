@@ -2,12 +2,65 @@
     main.css is the usual name for a CSS which will be used on all/most pages.
 */
 
+/*
+    main.css is the usual name for a CSS which will be used on all/most pages.
+*/
+
 main {
-    padding: 1.2rem;
+    margin: 1.5rem auto;
+    margin-top: 1.5rem;
+    width: 80%;
 }
 
-.warriors, .tools {
+.resource__logo {
+    height: 50px;
+}
+
+.col {
+    justify-content: center;
+    display: flex;
+}
+
+.resource__bar {
     display: grid;
+    display: flex;
+    column-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
-    row-gap: 1rem;
+    padding: 10px;
+    margin-bottom: 2rem;
+}
+
+.resource__gold {
+    background-color: gold;
+    width: 200px;
+}
+
+.resource__metal {
+    background-color: lightgray;
+    width: 200px;
+}
+
+.resource__wood {
+    background-color: green;
+    width: 200px;
+}
+
+#gold__amount, #metal__amount, #wood__amount {
+    font-size: larger;
+    font-family: fantasy;
+    font-weight: 900;
+    padding-left: 20px;
+}
+
+.resource__gathering {
+    display: grid;
+    display: flex;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+}
+
+.resource__field {
+    height: 20rem;
+    width: 30rem;
 }

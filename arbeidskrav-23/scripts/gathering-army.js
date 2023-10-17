@@ -12,15 +12,8 @@ import { showResources } from "./utils/resource.js";
 const armyShopContainer = document.querySelector(".army__shop");
 const searchTerm = document.querySelector(".search__term");
 const searchButton = document.querySelector(".search__btn");
-// const amountOfGold = document.querySelector("#gold__amount");
-// const amountOfIron = document.querySelector("#metal__amount");
-// const amountOfWood = document.querySelector("#wood__amount");
 
-// // Showing Amount Of Resources Collected
-// amountOfGold.innerHTML = resources[0].amount;
-// amountOfIron.innerHTML = resources[1].amount;
-// amountOfWood.innerHTML = resources[2].amount;
-
+// Show resource from local storage
 showResources(resources);
 
 //Merging both Modules into one Array
@@ -63,10 +56,6 @@ searchButton.addEventListener("click", (event) => {
     updateResourceAmount("Gold", e.target.title, "DECREAMENT");
     addArmyToInventory(e.target.name);
     const updatedAmount = JSON.parse(localStorage.getItem("resources"));
-    console.log(updatedAmount);
-    // amountOfGold.innerHTML = updatedAmount[0].amount;
-    // amountOfIron.innerHTML = updatedAmount[1].amount;
-    // amountOfWood.innerHTML = updatedAmount[2].amount;
     showResources(updatedAmount);
   });
 });

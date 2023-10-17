@@ -3,8 +3,11 @@ import {
   inventoryCardElements,
   renderMessage,
 } from "./utils/htmlDOMElements.js";
+import { showResources } from "./utils/resource.js";
 
 const inventoryWrapper = document.querySelector(".inventory__wrapper");
+
+showResources(resources);
 
 const displayInventoryCards = () => {
   let output = "";

@@ -14,7 +14,7 @@ const createCardElements = (data) => {
 const inventoryCardElements = (data) => {
   return `
         <div class="card card__inventory" style="width: 15rem">
-            <img class="card__img" src=${data.image} alt=${data.categoryName}/>
+            <img class="card__img" src=${data.image} alt=${data.categoryName} />
         </div>
     `;
 };
